@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#04050a">
+<title>E³ HQ — The Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preload" href="hq.css" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hq.css">
+<style>:root{--accent:#a78bfa;--accent-dim:rgba(167,139,250,0.10);--accent-border:rgba(167,139,250,0.25);}</style>
+<script>
+window.ROOM_CONFIG={id:'insights',items:[
+{img:'https://images.unsplash.com/photo-1432888622747-4eb9a8efbc07?w=900&q=80',title:'Why Your Website Is Losing You Money',subtitle:'Web Strategy · 8 min read',tag:'Insights',body:'Most Nigerian SME websites are digital brochures — they look fine but do not convert. Five structural problems costing businesses leads every day, and how to fix each one.',tags:['Web Strategy','Conversion','Nigerian Market','SME'],cta:{label:'Read Article →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=80',title:'The AI Opportunity African SMEs Are Missing',subtitle:'AI & Automation · 6 min read',tag:'Insights',body:'AI is not a luxury for big corporations. Five practical ways small and medium businesses across Africa are already using AI to automate work and compete at scale.',tags:['AI','Automation','Africa','SME Strategy'],cta:{label:'Read Article →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80',title:'Mobile-First Is Not Enough Anymore',subtitle:'Product Design · 5 min read',tag:'Insights',body:'Designing mobile-first was the standard five years ago. Today the bar is higher — performance, low-bandwidth resilience, and one-thumb navigation are requirements in the African market.',tags:['Mobile','Performance','Africa','UX'],cta:{label:'Read Article →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80',title:'How We Build: The E³ Process',subtitle:'Behind the Build · 7 min read',tag:'Insights',body:'From discovery to deployment, every E³ project follows a documented process. How we move from brief to launch — including our QA system and revision handling.',tags:['Process','Development','QA','Transparency'],cta:{label:'Read Article →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=900&q=80',title:'WhatsApp as a Commerce Channel',subtitle:'Nigerian E-Commerce · 5 min read',tag:'Insights',body:'WhatsApp is the dominant commerce channel for many Nigerian SMEs. How to build a proper funnel from your website — with pre-filled context and conversion-optimised messaging.',tags:['WhatsApp','Commerce','Nigeria','Conversion'],cta:{label:'Read Article →',href:'contact.html'}}
+]};</script>
+</head>
+<body>
+<div id="loader"><div class="loader-logo">E<span>³</span></div><div class="loader-tagline">The Library</div><div class="loader-bar"><div class="loader-bar-fill" id="load-bar"></div></div><div class="loader-pct" id="load-pct">0%</div></div>
+<div id="canvas-wrap"></div>
+<div id="room-transition"></div>
+<div id="dof-overlay"></div>
+<div id="topbar">
+  <div class="hq-logo" style="cursor:pointer">E<span>³</span></div>
+  <div class="room-name">📖 The Library</div>
+  <div class="topbar-right">
+    <button id="gyro-btn" aria-label="Toggle gyroscope">🔭</button>
+    <button id="sound-btn" aria-label="Toggle sound">♩</button>
+    <button class="hq-hamburger" aria-label="Navigation"><span></span><span></span><span></span></button>
+  </div>
+</div>
+<button id="back-btn">← Back</button>
+<div id="card-overlay" role="dialog" aria-modal="true">
+  <div id="card-backdrop"></div>
+  <div class="card-sheet">
+    <div class="card-handle"></div>
+    <div class="card-img-wrap"><img id="card-img" src="" alt="" loading="lazy"><button id="card-close" aria-label="Close">✕</button></div>
+    <div class="card-content">
+      <div class="card-tag-label" id="card-tag"></div>
+      <div class="card-title" id="card-title"></div>
+      <div class="card-subtitle" id="card-subtitle"></div>
+      <div class="card-divider"></div>
+      <div class="card-body-text" id="card-body"></div>
+      <div class="card-tags-row" id="card-tags"></div>
+      <div class="card-list" id="card-list"></div>
+      <button class="card-cta-btn" id="card-cta"></button>
+    </div>
+  </div>
+</div>
+<div id="nav-drawer">
+  <div class="nav-section-label">Navigate the HQ</div>
+  <div class="nav-room-list" id="nav-room-list"></div>
+  <a class="nav-contact-btn" onclick="window.location.href='contact.html'">Start a Project</a>
+</div>
+<div id="hud">
+  <span class="hud-hint">Pinch to walk · Drag to look</span>
+  <span class="hud-dot"></span>
+  <span class="hud-hint">Tap panels to explore</span>
+</div>
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+<div id="mini-nav"><div class="mini-nav-inner" id="mini-nav-inner"></div></div>
+<div id="touch-hint"><div class="touch-hint-icon">🤏</div><div class="touch-hint-label">Pinch to walk forward</div></div>
+<div id="tooltip"></div>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" crossorigin="anonymous"></script>
+<script defer src="hq.js"></script>
+<script>if('ontouchstart' in window){var th=document.getElementById('touch-hint');setTimeout(function(){if(th)th.classList.add('show');},2400);setTimeout(function(){if(th)th.classList.remove('show');},5500);}</script>
+</body>
+</html>
