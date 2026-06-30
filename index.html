@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#04050a">
+<meta name="description" content="E³ SME — Encouraging Excellence Early. Africa's premier AI-powered digital agency. Abuja, Nigeria.">
+<title>E³ HQ — Entrance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preload" href="hq.css" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hq.css">
+<script>
+window.ROOM_CONFIG = {
+  id: 'index',
+  items: [
+    { img:'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80', title:'AI-Powered Solutions', subtitle:'Intelligence built in', tag:'Our Core', body:'We build AI systems, automations and smart platforms that make African businesses faster, smarter and more competitive — from day one.', tags:['AI Automation','LLM Integration','Workflow Intelligence'], cta:{label:'Explore Solutions →',href:'solutions.html'} },
+    { img:'https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&q=80', title:'Custom Web & Mobile', subtitle:'Built to convert', tag:'Development', body:'Premium websites and iOS/Android apps engineered for performance, crafted for impact. Every pixel earns its place.', tags:['Web Apps','Mobile Apps','PWAs'], cta:{label:'See Our Work →',href:'case-studies.html'} },
+    { img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80', title:'Who We Are', subtitle:'Built in Africa, built for Africa', tag:'About E³', body:'E³ SME is a digital agency based in Abuja, Nigeria, helping founders and SMEs across Africa build with precision and scale with confidence.', tags:['Abuja, Nigeria','Pan-African','SME-Focused'], cta:{label:'Our Story →',href:'about.html'} },
+    { img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80', title:'Industries We Serve', subtitle:'Sector-specific expertise', tag:'Industries', body:'From fintech and healthcare to real estate and e-commerce — we understand the unique demands of each sector we work in.', tags:['Fintech','Healthcare','Real Estate','Retail'], cta:{label:'Explore Industries →',href:'industries.html'} },
+    { img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80', title:'Our Work', subtitle:'Proof in the build', tag:'Portfolio', body:'Real projects. Real clients. Real results. Walk through our portfolio and see how we\'ve transformed businesses across Nigeria.', tags:['Web Projects','Mobile Apps','SaaS Platforms'], cta:{label:'View Portfolio →',href:'case-studies.html'} }
+  ]
+};
+</script>
+</head>
+<body>
+<div id="loader">
+  <div class="loader-logo">E<span>³</span></div>
+  <div class="loader-tagline">Encouraging Excellence Early</div>
+  <div class="loader-bar"><div class="loader-bar-fill" id="load-bar"></div></div>
+  <div class="loader-pct" id="load-pct">0%</div>
+</div>
+<div id="title-screen">
+  <div class="title-eyebrow">Welcome to E³ Headquarters · Abuja, Nigeria</div>
+  <div class="title-logo">E<span>³</span></div>
+  <div class="title-sub">Encouraging Excellence Early</div>
+  <button class="enter-btn" id="enter-btn">Enter Headquarters</button>
+</div>
+<div id="canvas-wrap"></div>
+<div id="room-transition"></div>
+<div id="dof-overlay"></div>
+<div id="topbar">
+  <div class="hq-logo">E<span>³</span></div>
+  <div class="room-name">Entrance Hall</div>
+  <div class="topbar-right">
+    <button id="gyro-btn" aria-label="Toggle gyroscope">🔭</button>
+    <button id="sound-btn" aria-label="Toggle sound">♩</button>
+    <button class="hq-hamburger" aria-label="Navigation"><span></span><span></span><span></span></button>
+  </div>
+</div>
+<button id="back-btn" style="display:none"></button>
+<div id="card-overlay" role="dialog" aria-modal="true">
+  <div id="card-backdrop"></div>
+  <div class="card-sheet">
+    <div class="card-handle"></div>
+    <div class="card-img-wrap"><img id="card-img" src="" alt="" loading="lazy"><button id="card-close" aria-label="Close">✕</button></div>
+    <div class="card-content">
+      <div class="card-tag-label" id="card-tag"></div>
+      <div class="card-title" id="card-title"></div>
+      <div class="card-subtitle" id="card-subtitle"></div>
+      <div class="card-divider"></div>
+      <div class="card-body-text" id="card-body"></div>
+      <div class="card-tags-row" id="card-tags"></div>
+      <div class="card-list" id="card-list"></div>
+      <button class="card-cta-btn" id="card-cta"></button>
+    </div>
+  </div>
+</div>
+<div id="nav-drawer">
+  <div class="nav-section-label">Navigate the HQ</div>
+  <div class="nav-room-list" id="nav-room-list"></div>
+  <a class="nav-contact-btn" onclick="window.location.href='contact.html'">Start a Project</a>
+</div>
+<div id="hud">
+  <span class="hud-hint">Pinch to walk · Drag to look</span>
+  <span class="hud-dot"></span>
+  <span class="hud-hint">Tap panels to explore</span>
+</div>
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+<div id="mini-nav"><div class="mini-nav-inner" id="mini-nav-inner"></div></div>
+<div id="touch-hint">
+  <div class="touch-hint-icon">🤏</div>
+  <div class="touch-hint-label">Pinch to walk forward</div>
+</div>
+<div id="tooltip"></div>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" crossorigin="anonymous"></script>
+<script defer src="hq.js"></script>
+<script>
+// Show touch hint briefly on mobile
+if('ontouchstart' in window) {
+  var th=document.getElementById('touch-hint');
+  setTimeout(function(){ if(th) th.classList.add('show'); }, 3200);
+  setTimeout(function(){ if(th) th.classList.remove('show'); }, 6500);
+}
+// Progress bar visible after entering
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    var pb=document.getElementById('progress-bar-wrap');
+    if(pb) pb.classList.add('visible');
+  },4000);
+});
+</script>
+</body>
+</html>
