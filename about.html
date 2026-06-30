@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#04050a">
+<title>E³ HQ — About E³</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preload" href="hq.css" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hq.css">
+
+<script>
+window.ROOM_CONFIG={id:'about',items:[
+{img:'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=900&q=80',title:'Our Origin',subtitle:'Why E³ exists',tag:'Founding Story',body:'E³ was founded on a single conviction: African businesses deserve world-class digital solutions built specifically for them. We started in Abuja with a bold mandate.',tags:['Founded in Abuja','2024','African-First'],cta:{label:'See Our Work →',href:'case-studies.html'}},
+{img:'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80',title:'What E³ Means',subtitle:'Encouraging Excellence Early',tag:'Our Name',body:'The name is not just a tagline — it is a philosophy. Excellence should not wait for scale. From your first product to your tenth, every build deserves precision and ambition.',tags:['Philosophy','Standards','Craft'],cta:{label:'Our Services →',href:'solutions.html'}},
+{img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80',title:'What We Build',subtitle:'Full-spectrum digital agency',tag:'Capabilities',body:'Custom websites. iOS and Android apps. AI automation systems. Industry-specific SaaS platforms. We engineer solutions, not templates.',tags:['Web','Mobile','AI','SaaS'],listItems:[{label:'AI-Powered Solutions'},{label:'Custom Web Development'},{label:'Mobile App Development'},{label:'Industry Software'}],cta:{label:'Explore Solutions →',href:'solutions.html'}},
+{img:'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=900&q=80',title:'Who We Serve',subtitle:'Nigerian & African market',tag:'Our Clients',body:'SME founders. Growing businesses. Visionary entrepreneurs. We work with people who are serious about building something that lasts.',tags:['SMEs','Startups','Enterprises','Nigeria','Africa'],cta:{label:'Get in Touch →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80',title:'Our Standard',subtitle:'Excellence is not optional',tag:'How We Work',body:'Every project goes through rigorous QA. Every interface is mobile-first. Every build ships with documentation, clean code, and a complete handoff.',tags:['QA-Verified','Mobile-First','Clean Code','Full Handoff'],cta:{label:'Start a Project →',href:'contact.html'}}
+]};</script>
+</head>
+<body>
+<div id="loader"><div class="loader-logo">E<span>³</span></div><div class="loader-tagline">About E³</div><div class="loader-bar"><div class="loader-bar-fill" id="load-bar"></div></div><div class="loader-pct" id="load-pct">0%</div></div>
+<div id="canvas-wrap"></div>
+<div id="room-transition"></div>
+<div id="dof-overlay"></div>
+<div id="topbar">
+  <div class="hq-logo" style="cursor:pointer">E<span>³</span></div>
+  <div class="room-name">◆ About E³</div>
+  <div class="topbar-right">
+    <button id="gyro-btn" aria-label="Toggle gyroscope">🔭</button>
+    <button id="sound-btn" aria-label="Toggle sound">♩</button>
+    <button class="hq-hamburger" aria-label="Navigation"><span></span><span></span><span></span></button>
+  </div>
+</div>
+<button id="back-btn">← Back</button>
+<div id="card-overlay" role="dialog" aria-modal="true">
+  <div id="card-backdrop"></div>
+  <div class="card-sheet">
+    <div class="card-handle"></div>
+    <div class="card-img-wrap"><img id="card-img" src="" alt="" loading="lazy"><button id="card-close" aria-label="Close">✕</button></div>
+    <div class="card-content">
+      <div class="card-tag-label" id="card-tag"></div>
+      <div class="card-title" id="card-title"></div>
+      <div class="card-subtitle" id="card-subtitle"></div>
+      <div class="card-divider"></div>
+      <div class="card-body-text" id="card-body"></div>
+      <div class="card-tags-row" id="card-tags"></div>
+      <div class="card-list" id="card-list"></div>
+      <button class="card-cta-btn" id="card-cta"></button>
+    </div>
+  </div>
+</div>
+<div id="nav-drawer">
+  <div class="nav-section-label">Navigate the HQ</div>
+  <div class="nav-room-list" id="nav-room-list"></div>
+  <a class="nav-contact-btn" onclick="window.location.href='contact.html'">Start a Project</a>
+</div>
+<div id="hud">
+  <span class="hud-hint">Pinch to walk · Drag to look</span>
+  <span class="hud-dot"></span>
+  <span class="hud-hint">Tap panels to explore</span>
+</div>
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+<div id="mini-nav"><div class="mini-nav-inner" id="mini-nav-inner"></div></div>
+<div id="touch-hint"><div class="touch-hint-icon">🤏</div><div class="touch-hint-label">Pinch to walk forward</div></div>
+<div id="tooltip"></div>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" crossorigin="anonymous"></script>
+<script defer src="hq.js"></script>
+<script>if('ontouchstart' in window){var th=document.getElementById('touch-hint');setTimeout(function(){if(th)th.classList.add('show');},2400);setTimeout(function(){if(th)th.classList.remove('show');},5500);}</script>
+</body>
+</html>
