@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#04050a">
+<title>E³ HQ — Portfolio Museum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preload" href="hq.css" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hq.css">
+<style>:root{--accent:#ff9f43;--accent-dim:rgba(255,159,67,0.10);--accent-border:rgba(255,159,67,0.25);}</style>
+<script>
+window.ROOM_CONFIG={id:'case-studies',items:[
+{img:'https://images.unsplash.com/photo-1541643600914-78b084683702?w=900&q=80',title:'Beverly Hills Scents',subtitle:'Luxury e-commerce · Abuja',tag:'E-Commerce',body:'A premium dark-luxury e-commerce platform for a high-end perfumery in Abuja. Scent Finder Quiz, WhatsApp checkout, performance-optimised product pages, gold/obsidian design system.',tags:['E-Commerce','Dark Luxury','WhatsApp','Scent Quiz','Abuja'],listItems:[{label:'Custom product catalog'},{label:'AI-assisted Scent Finder'},{label:'WhatsApp order integration'},{label:'Mobile-first checkout'}],cta:{label:'Start a Similar Project →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&q=80',title:'Esmeralda Beauty',subtitle:'Salon & Spa platform · Gwarinpa',tag:'Service Business',body:'Full-featured website for a premium salon and spa in Gwarinpa, Abuja. Service cart, WhatsApp checkout flow, booking modals, and a 52-point QA verification.',tags:['Beauty','Booking','WhatsApp','Cart','52-Point QA'],listItems:[{label:'Service booking system'},{label:'Cart + WhatsApp checkout'},{label:'Gallery and portfolio'},{label:'52-point QA verified'}],cta:{label:'Build a Service Site →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80',title:'Iron Mint Stewardship',subtitle:'10-page enterprise website',tag:'Enterprise',body:'A 10-page enterprise website for a stewardship firm. Gold/black/white palette with branch-specific accent colors. Programmatic audit confirmed zero issues across all pages.',tags:['Enterprise','Multi-Page','Zero Defects','Gold/Black'],listItems:[{label:'10 fully built pages'},{label:'Branch-specific accents'},{label:'Programmatic zero-issue audit'},{label:'Executive brand system'}],cta:{label:'Build Your Enterprise Site →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=900&q=80',title:'E³ SaaS Platform',subtitle:'Internal web application',tag:'SaaS',body:'A full production SaaS web app with Supabase backend, dark luxury design system, and a rebuild resolving 28 issues including security, mobile UX, and accessibility compliance.',tags:['SaaS','Supabase','Auth','Security','Accessibility'],listItems:[{label:'Supabase backend integration'},{label:'28-issue resolution audit'},{label:'Role-based access control'},{label:'Full mobile responsiveness'}],cta:{label:'Build a SaaS Platform →',href:'contact.html'}},
+{img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80',title:'Topspace Tech Retail',subtitle:'Computer Village · Ikeja Lagos',tag:'Tech Retail',body:'A unified tech retail platform for phones and laptops with a shared cart system, product modals, and WhatsApp ordering. Built for fast-moving inventory.',tags:['Tech Retail','Cart','Modals','Lagos','WhatsApp'],listItems:[{label:'Phones + laptops catalog'},{label:'Unified cart system'},{label:'Product detail modals'},{label:'WhatsApp order funnel'}],cta:{label:'Build a Retail Platform →',href:'contact.html'}}
+]};</script>
+</head>
+<body>
+<div id="loader"><div class="loader-logo">E<span>³</span></div><div class="loader-tagline">Portfolio Museum</div><div class="loader-bar"><div class="loader-bar-fill" id="load-bar"></div></div><div class="loader-pct" id="load-pct">0%</div></div>
+<div id="canvas-wrap"></div>
+<div id="room-transition"></div>
+<div id="dof-overlay"></div>
+<div id="topbar">
+  <div class="hq-logo" style="cursor:pointer">E<span>³</span></div>
+  <div class="room-name">📁 Portfolio Museum</div>
+  <div class="topbar-right">
+    <button id="gyro-btn" aria-label="Toggle gyroscope">🔭</button>
+    <button id="sound-btn" aria-label="Toggle sound">♩</button>
+    <button class="hq-hamburger" aria-label="Navigation"><span></span><span></span><span></span></button>
+  </div>
+</div>
+<button id="back-btn">← Back</button>
+<div id="card-overlay" role="dialog" aria-modal="true">
+  <div id="card-backdrop"></div>
+  <div class="card-sheet">
+    <div class="card-handle"></div>
+    <div class="card-img-wrap"><img id="card-img" src="" alt="" loading="lazy"><button id="card-close" aria-label="Close">✕</button></div>
+    <div class="card-content">
+      <div class="card-tag-label" id="card-tag"></div>
+      <div class="card-title" id="card-title"></div>
+      <div class="card-subtitle" id="card-subtitle"></div>
+      <div class="card-divider"></div>
+      <div class="card-body-text" id="card-body"></div>
+      <div class="card-tags-row" id="card-tags"></div>
+      <div class="card-list" id="card-list"></div>
+      <button class="card-cta-btn" id="card-cta"></button>
+    </div>
+  </div>
+</div>
+<div id="nav-drawer">
+  <div class="nav-section-label">Navigate the HQ</div>
+  <div class="nav-room-list" id="nav-room-list"></div>
+  <a class="nav-contact-btn" onclick="window.location.href='contact.html'">Start a Project</a>
+</div>
+<div id="hud">
+  <span class="hud-hint">Pinch to walk · Drag to look</span>
+  <span class="hud-dot"></span>
+  <span class="hud-hint">Tap panels to explore</span>
+</div>
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+<div id="mini-nav"><div class="mini-nav-inner" id="mini-nav-inner"></div></div>
+<div id="touch-hint"><div class="touch-hint-icon">🤏</div><div class="touch-hint-label">Pinch to walk forward</div></div>
+<div id="tooltip"></div>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" crossorigin="anonymous"></script>
+<script defer src="hq.js"></script>
+<script>if('ontouchstart' in window){var th=document.getElementById('touch-hint');setTimeout(function(){if(th)th.classList.add('show');},2400);setTimeout(function(){if(th)th.classList.remove('show');},5500);}</script>
+</body>
+</html>
